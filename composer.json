@@ -1,0 +1,28 @@
+{
+    "name": "tenancy/affects-views",
+    "description": "The tenancy/tenancy views mutations",
+    "keywords": ["affects", "tenancy", "views"],
+    "license": "MIT",
+    "require": {
+        "tenancy/framework": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tenancy\\Affects\\Views\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "Daniël Klabbers",
+            "email": "daniel@klabbers.email",
+            "homepage": "http://luceos.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tenancy\\Affects\\Views\\Providers\\ServiceProvider"
+            ]
+        }
+    }
+}
