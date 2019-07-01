@@ -12,12 +12,11 @@
  * @see https://github.com/tenancy
  */
 
-namespace Tenancy\Affects\Views\Providers;
+namespace Tenancy\Affects\Views;
 
-use Tenancy\Affects\Views\Listeners\ConfiguresViews;
 use Tenancy\Support\AffectsProvider;
 
-class ServiceProvider extends AffectsProvider
+class Provider extends AffectsProvider
 {
     protected $affects = [ConfiguresViews::class];
 }

@@ -12,27 +12,23 @@
  * @see https://github.com/tenancy
  */
 
-namespace Tenancy\Affects\Views\Listeners;
+namespace Tenancy\Affects\Views;
 
 use Illuminate\Contracts\View\Factory;
-use Tenancy\Affects\Views\Events\ConfigureViews;
+use Tenancy\Affects\Affect;
 use Tenancy\Concerns\DispatchesEvents;
-use Tenancy\Contracts\TenantAffectsApp;
-use Tenancy\Identification\Events\Switched;
 
-class ConfiguresViews implements TenantAffectsApp
+class ConfiguresViews extends Affect
 {
     use DispatchesEvents;
 
-    public function handle(Switched $event): ?bool
+    public function fire(): void
     {
         /** @var Factory $view */
         $view = resolve(Factory::class);
 
-        if ($event->tenant) {
-            $this->events()->dispatch(new ConfigureViews($event, $view));
+        if ($this->event->tenant) {
+            $this->events()->dispatch(new Events\ConfigureViews($this->event, $view));
         }
-
-        return null;
     }
 }
